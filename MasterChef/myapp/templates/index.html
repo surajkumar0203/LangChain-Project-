@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{% static "index.css" %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>AI <span>Master</span>Chef</h1>
+    <div class="main-contener">
+        <pre class="output-show">
+            {{recipe_msg}}
+            
+        </pre>
+
+        <div class="form-input">
+            <form action="{% url 'index' %}" method="POST">
+                {% csrf_token %}
+                {{form.inputBox}}
+                <button type='submit'>Ask Me</button>
+            </from> 
+
+        </div>
+    </div>
+        
+</body>
+</html>
